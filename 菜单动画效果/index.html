@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菜单动画效果</title>
+
+    <style>
+        .menu_Container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .line {
+                background-color: blue;
+                width: 0px;
+                height: 5px;
+                transition: width 0.5s;
+            }
+
+            .menu_Desc {
+                font-size: 25px;
+                margin-top: 15%;
+                margin-bottom: 10px;
+                color: black;
+            }
+
+            .button_Container {
+                #button {
+                    width: 100px;
+                    height: 30px;
+                    margin-top: 15px;
+                    border-radius: 5px;
+                }
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menu_Container">
+        <div class="menu_Desc">菜单选项</div>
+        <div class="line"></div>
+        <div class="button_Container">
+            <button id="button" onclick="changeStyle()">
+                切换样式
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function changeStyle() {
+            let element01 = document.querySelector(".menu_Desc");
+            let element02 = document.querySelector(".line");
+
+            let computedStyle = getComputedStyle(element01);
+            let color = computedStyle.getPropertyValue("color");
+
+            if (color === "rgb(0, 0, 0)" || color === "black" || element02.style.width === "" || element02.style.width === "0px") {
+                element01.style.color = "blue"
+                element02.style.width = "120px"
+            }
+            else {
+                element01.style.color = "black"
+                element02.style.width = "0px"
+            }
+        }
+    </script>
+</body>
+
+</html>
