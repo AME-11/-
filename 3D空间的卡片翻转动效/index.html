@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D空间的卡片翻转动效</title>
+
+    <style>
+        .card_Container {
+            display: flex;
+            justify-content: center;
+            padding-top: 100px;
+        }
+
+        .card {
+            width: 250px;
+            height: 300px;
+            background-color: rgb(165, 163, 163);
+            border: 1px solid rgb(119, 118, 118);
+            border-radius: 10px;
+            box-shadow: 0px 2px 5px rgb(66, 65, 65);
+            position: relative;
+            transition: transform 0.5s;
+        }
+
+        .card_Front,
+        .card_Back {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transition: opacity 0.1s;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            color: white;
+        }
+
+        .card_Front {
+            z-index: 2;
+            transform: rotateY(0deg);
+            backface-visibility: hidden;
+        }
+
+        .card_Back {
+            z-index: 1;
+            transform: rotateY(180deg);
+            opacity: 0;
+        }
+
+        .card:hover .card_Front {
+            opacity: 0;
+        }
+
+        .card:hover .card_Back {
+            opacity: 1;
+        }
+
+        .card:hover {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card_Container">
+        <div class="card">
+            <div class="card_Front">正面</div>
+            <div class="card_Back">反面</div>
+        </div>
+    </div>
+</body>
+
+</html>
