@@ -1,0 +1,29 @@
+.menu_Container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .line {
+        background-color: blue;
+        width: 0px;
+        height: 5px;
+        transition: width 0.5s;
+    }
+
+    .menu_Desc {
+        font-size: 25px;
+        margin-top: 15%;
+        margin-bottom: 10px;
+        color: black;
+    }
+
+    .button_Container {
+        #button {
+            width: 100px;
+            height: 30px;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+    }
+}
